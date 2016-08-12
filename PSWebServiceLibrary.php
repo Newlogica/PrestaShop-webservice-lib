@@ -46,7 +46,7 @@ class PrestaShopWebservice
 
 	/** @var array compatible versions of PrestaShop Webservice */
 	const psCompatibleVersionsMin = '1.4.0.0';
-	const psCompatibleVersionsMax = '1.6.1.5';
+	const psCompatibleVersionsMax = '1.6.1.6';
 
 	/**
 	 * PrestaShopWebservice constructor. Throw an exception when CURL is not installed/activated
@@ -287,7 +287,7 @@ class PrestaShopWebservice
 					if (strpos($k, $p) !== false)
 						$url_params[$k] = $options[$k];
 			if (count($url_params) > 0)
-				$url .= '?'.http_build_query($url_params);
+				$url .= '?'.http_build_query($url_params, '', "&");
 		}
 		else
 			throw new PrestaShopWebserviceException('Bad parameters given');
@@ -321,7 +321,7 @@ class PrestaShopWebservice
 					if (strpos($k, $p) !== false)
 						$url_params[$k] = $options[$k];
 			if (count($url_params) > 0)
-				$url .= '?'.http_build_query($url_params);
+				$url .= '?'.http_build_query($url_params, '', "&");
 		}
 		else
 			throw new PrestaShopWebserviceException('Bad parameters given');
